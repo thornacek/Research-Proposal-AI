@@ -9,6 +9,8 @@
 
 **Developed as capstone project for Johns Hopkins University Generative AI Certificate Program**
 
+📄 See it run end to end — full rendered notebook with every generated output: [`final_project_proposal_ai.html`](final_project_proposal_ai.html)
+
 ---
 
 ## 🎯 Problem Statement
@@ -116,16 +118,45 @@ Retrieves relevant context from filtered papers to generate compliant proposal s
 
 ---
 
+## 📄 Sample Output (system-generated)
+
+From a mental-health NOFO and a folder of ingested papers, one run extracted the funding topic, relevance-filtered the papers, generated five candidate proposals, selected one, drafted it in full, and then self-scored it against NIH-style review criteria. A condensed sample of the actual output:
+
+**Candidate ideas generated (5), for example:**
+- *Enhancing Mental Health Engagement through Adaptive Social Media Interventions* — personalized, adaptive content driven by engagement and emotional-response signals.
+- *Neurofeedback-Driven Digital Interventions for Substance Use Disorders* — eye-tracking and facial-expression neurofeedback for personalized engagement.
+
+Each idea is returned with a description, explicit NOFO alignment, and the source paper it draws from.
+
+**Selected and drafted proposal:** *Social Network Analysis for Suicide Prevention Messaging* — uses Social Network Analysis to identify key influencers and information pathways in online communities, so tailored suicide-prevention messaging reaches vulnerable populations more effectively. The generated draft poses three research questions:
+
+1. How can SNA identify key influencers within online communities for suicide-prevention messaging?
+2. What are the most effective pathways for disseminating tailored messages to vulnerable populations?
+3. How can the impact of those tailored messages be measured?
+
+**System self-evaluation against NIH-style review criteria:**
+
+| Criterion | Score |
+|---|---|
+| Innovation | 4 / 5 |
+| Significance | 5 / 5 |
+| Approach | 4 / 5 |
+| Investigator Expertise | 3 / 5 |
+
+Each score comes with generated justification, strengths, weaknesses, and concrete recommendations. See the full run, including every idea and the complete drafted proposal, in [`final_project_proposal_ai.html`](final_project_proposal_ai.html).
+
+---
+
 ## 📁 Repository Structure
 
 ```
 ├── README.md
-├── notebooks/
-│   ├── final_project_proposal_ai.ipynb    # Main capstone notebook
-│   └── midterm_email_classifier.ipynb     # Email intelligence system
-├── docs/
-│   ├── architecture.md                     # System design details
-│   └── sample_outputs/                     # Generated proposal examples
+├── Research Proposal RAG Implementation.ipynb   # Main capstone notebook
+├── final_project_proposal_ai.html               # Full rendered proposal output
+├── midterm_email_classifier.html                # Midterm: email intelligence system
+├── architecture.md                              # System design details
+├── sample_proposal_idea.md                      # Example proposal input
+├── config.example.json
 ├── requirements.txt
 └── LICENSE
 ```
@@ -136,8 +167,8 @@ Retrieves relevant context from filtered papers to generate compliant proposal s
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/research-proposal-ai.git
-cd research-proposal-ai
+git clone https://github.com/thornacek/Research-Proposal-AI.git
+cd Research-Proposal-AI
 
 # Install dependencies
 pip install -r requirements.txt
@@ -166,7 +197,7 @@ relevant_papers = relevance_filter(papers, topic)
 proposals = llm.invoke(ideation_prompt)
 ```
 
-See `notebooks/final_project_proposal_ai.ipynb` for complete implementation.
+See `Research Proposal RAG Implementation.ipynb` for complete implementation.
 
 ---
 
